@@ -1,6 +1,7 @@
 // https://adventofcode.com/2022/day/4
 use std::ops::Range;
 
+
 struct Assignment {
     range1: Range<u32>,
     range2: Range<u32>,
