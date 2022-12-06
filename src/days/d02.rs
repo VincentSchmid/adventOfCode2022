@@ -8,17 +8,6 @@ const ROCK_SCORE : u32 = 1;
 const PAPER_SCORE : u32 = 2;
 const SCISSORS_SCORE : u32 = 3;
 
-fn map_char_to_rps(input: &str) -> RPS {
-    match input {
-        "A" => RPS::Rock,
-        "B" => RPS::Paper,
-        "C" => RPS::Scissors,
-        "X" => RPS::Rock,
-        "Y" => RPS::Paper,
-        "Z" => RPS::Scissors,
-        _ => panic!("Invalid input"),
-    }
-}
 
 fn map_char_to_rps_by_outcome(opponent: &str, outcome: &str) -> (RPS, RPS) {
     let opponent_move = match opponent {
@@ -76,9 +65,6 @@ enum Winner {
 
 #[derive(Debug)]
 struct Game {
-    opponent: RPS,
-    me: RPS,
-    winner: Winner,
     score: u32,
 }
 
@@ -86,7 +72,7 @@ impl Game {
     pub fn new(opponent: RPS, me: RPS) -> Self {
         let winner: Winner = Self::get_winner(&opponent, &me);
         let score: u32 = Self::get_score(&me, &winner);
-        Self { opponent, me, winner, score }
+        Self { score }
     }
 
     pub fn of(input: &str) -> Self {

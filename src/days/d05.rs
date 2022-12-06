@@ -2,6 +2,7 @@
 use std::ops::Range;
 use std::collections::VecDeque;
 
+
 #[derive(Debug, Clone)]
 struct Stack {
     content: VecDeque<char>,
